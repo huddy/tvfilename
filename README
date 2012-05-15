@@ -1,0 +1,31 @@
+<pre>
+<?php
+
+require 'Libraries/tvfilename/tvfilename.php';
+$tv = new tvfilename\tvfilename();
+//var_dump($tv->parse(array('House moon s10e2', 'asdfs s3e06')));
+
+$arr = array();
+$iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator('/server/share/TV'));
+foreach ($iterator as $file) {
+    $name = $file->getFilename();
+    if (preg_match('/\.(txt|db|URL)/', $name, $matches) < 1) {
+        $arr[$name] = '';
+    }
+}
+
+$mtime = microtime();
+$mtime = explode(" ", $mtime);
+$mtime = $mtime[1] + $mtime[0];
+$starttime = $mtime;
+
+var_dump($tv->parse(array_keys($arr)));
+
+$mtime = microtime();
+$mtime = explode(" ", $mtime);
+$mtime = $mtime[1] + $mtime[0];
+$endtime = $mtime;
+$totaltime = ($endtime - $starttime);
+echo "This was created in " . $totaltime . " seconds";
+</pre>
+
