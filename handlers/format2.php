@@ -14,8 +14,8 @@ class format2 implements handlerInterface {
     public function match($string) {
         $matches = array();
         if (preg_match($this->_regex, $string, $matches) > 0) {
-            $this->season = $matches[1];
-            $this->episode = $matches[2];
+            $this->season = (int) $matches[1];
+            $this->episode = (int) $matches[2];
             $this->string = $string;
             return true;
         }

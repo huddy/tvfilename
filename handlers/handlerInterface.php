@@ -6,6 +6,7 @@ namespace tvfilename\handlers;
  */
 
 interface handlerInterface {
+
     public function match($string);
 }
 

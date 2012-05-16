@@ -1,19 +1,30 @@
 <?php
+
 namespace tvfilename;
+
 use tvfilename\handlers;
 
-class tvfilenameresult {
-    
-    public $season = '';
-    public $episode = '';
+class tvfilenameresult
+{
+
+    public $season = 0;
+    public $episode = 0;
     public $string = '';
     public $status = true;
-    
-    public function __construct(handlers\handlerInterface $handler){
+
+    public function __construct(handlers\handlerInterface $handler)
+    {
+        
+        if (empty($handler->season) && empty($handler->episode)
+                && !is_numeric($handler->season) && !is_numeric($handler->episode)) {
+            throw New \Exception('Handler doesnt appear to have an episode and season or they aren\'nt numeric.');
+        }
+
         $this->season = $handler->season;
         $this->episode = $handler->episode;
         $this->string = $handler->string;
     }
+
 }
 
 ?>
