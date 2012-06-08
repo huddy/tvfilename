@@ -46,6 +46,7 @@ class format2test extends PHPUnit_Framework_TestCase
         return array(
             array('[DBNL] One Piece - 079 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 79),
             array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179),
+            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179),
             array('One Piece - 001 - I m Luffy! The Man Whos Gonna Be King of the Pirates! [x264][857DCFD6].mkv', 1, 1),
             array('[moo-shi]_Desert_Punk_-_01[DVD][H264.AAC][17FC7F0C].mkv', 1, 1),
             array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv',1,179),

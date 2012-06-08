@@ -23,6 +23,7 @@ class tvfilenameresult
         $this->season = $handler->season;
         $this->episode = $handler->episode;
         $this->string = $handler->string;
+        $this->handler = end(explode("\\",get_class($handler)));
     }
 
 }

@@ -20,11 +20,12 @@ class tvfilenametest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider providerMatches 
      */
-    public function testMatches($fileName, $season, $episode)
+    public function testMatches($fileName, $season, $episode, $handler)
     {
 
         $obj = self::$tvfilename->match($fileName);
         $this->assertInstanceOf('tvfilename\tvfilenameresult', $obj);
+        $this->assertEquals($handler,$obj->handler);
         $this->assertTrue($obj->status);
         $this->assertEquals($season,$obj->season);
         $this->assertEquals($episode,$obj->episode);
@@ -37,7 +38,8 @@ class tvfilenametest extends PHPUnit_Framework_TestCase
     public function providerMatches()
     {
         return array(
-            array('12 Oz. Mouse - S2E01 - Bowtime.avi', 2, 1),
+            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179,'format8'),
+            /*array('12 Oz. Mouse - S2E01 - Bowtime.avi', 2, 1),
             array('fdsgdfgdfgdf s01E3', 1, 3),
             array('s1e01 - Hired.avi', 1, 1),
             array('24 - 5x01 (HR.HDTV).avi', 5, 1),
@@ -74,7 +76,7 @@ class tvfilenametest extends PHPUnit_Framework_TestCase
             array('EFC 0107 - Resurrection.avi',1,7),
             array('Elfen Lied - 01 - A Chance Encounter.mkv',1,1),
             array('E05.720p.BluRay.x264-fty.mkv',1,5),
-            array('Episode 7 - Bolognese sauce.jpg',1,7)
+            array('Episode 7 - Bolognese sauce.jpg',1,7)*/
         );
     }
 

@@ -1,23 +1,39 @@
 <?php
 
 /**
- * Library to take a file name and attempt to get the season and episode number. 
+ * Library to take a file name and attempt to get the season and episode number.
+ * It works with a series of handlers, each handler is responsible for a certain
+ * set or matches and have their own tests. 
+ * 
+ * @author Billy Howard
+ * @class tvfilename 
  */
 
 namespace tvfilename;
-
 use tvfilename\handlers;
 
 class tvFilename
 {
 
+    /**
+     * List if our handlers in the order they should be loaded. It's important
+     * that the most specific handlers are first so the more greedy or last 
+     * resort matches don't match when they shouldn't.
+     * 
+     * @access private
+     * @var array
+     */
     private $_handlers = array(
         
-        /*'format1',
-        'format2',
-        'fßormat3',
-        'format4',
-        'format5',*/
+        'format8' => '',
+        'format1' => '',
+        'format2' => '',
+        'format3' => '',
+        'format4' => '',
+        'format5' => '',
+        'format6' => '',
+        'format7' => '',
+        'loadedStatus' => false,
         
     );
 
@@ -83,7 +99,7 @@ class tvFilename
         }
 
         foreach ($this->getHandlers() as $handlerName => $handler) {
-
+            
             if (true == $handler->match($string)) {
                 require_once 'tvfilenameresult.php';
                 return new tvfilenameresult($handler);
@@ -103,10 +119,9 @@ class tvFilename
     public function getHandlers()
     {
         
-        if (empty($this->_handlers)) {
+        if (false === $this->_handlers['loadedStatus']) {
             $this->loadHandlers();
         }
-
         return $this->_handlers;
     }
 
@@ -121,7 +136,7 @@ class tvFilename
          * Since I've not used recuriveiterators befoe and to help anyones else the $file variable contains an instance
          * of SplFileInfo). Tis very useful.  
          */
-        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(realpath(__DIR__ . '/handlers')));
+        /*$iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(realpath(__DIR__ . '/handlers')));
         foreach ($iterator as $file) {
             if (!preg_match('/(handler.php|handlerinterface.php)/i', $file->getFilename(), $matches) > 0) {
                 require_once($file->getPathname());
@@ -130,8 +145,19 @@ class tvFilename
                 $handler = new $class;
                 $this->addHandler($handlerName, $handler);
             }
+        }*/
+        
+        foreach(array_keys($this->_handlers) as $handler){
+            if('loadedStatus' !== $handler){               
+                require_once(realpath(__DIR__ . "/handlers/{$handler}.php"));
+                $class = '\\tvfilename\\handlers\\' . $handler;
+                $handlerObj = new $class;
+                $this->addHandler($handler, $handlerObj);
+            }
+            
         }
-
+        
+        $this->_handlers['loadedStatus'] = true;
         return $this;
     }
 
@@ -146,16 +172,3 @@ class tvFilename
     }
 
 }
-
-/**class Episode {
-
-    protected $_filePath;
-    protected $_showName;
-    protected $_season;
-    protected $_episode;
-
-    public function __construct($filePath) {
-        
-    }
-
-}**/
