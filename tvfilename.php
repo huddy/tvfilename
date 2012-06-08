@@ -11,7 +11,15 @@ use tvfilename\handlers;
 class tvFilename
 {
 
-    private $_handlers = array();
+    private $_handlers = array(
+        
+        /*'format1',
+        'format2',
+        'fßormat3',
+        'format4',
+        'format5',*/
+        
+    );
 
     /**
      * Parse string or strings using $this->match.
@@ -94,7 +102,7 @@ class tvFilename
      */
     public function getHandlers()
     {
-
+        
         if (empty($this->_handlers)) {
             $this->loadHandlers();
         }
@@ -108,7 +116,7 @@ class tvFilename
      */
     protected function loadHandlers()
     {
-
+        
         /**
          * Since I've not used recuriveiterators befoe and to help anyones else the $file variable contains an instance
          * of SplFileInfo). Tis very useful.  
@@ -119,7 +127,6 @@ class tvFilename
                 require_once($file->getPathname());
                 $handlerName = preg_replace('/\.php/', '', $file->getFilename());
                 $class = '\\tvfilename\\handlers\\' . $handlerName;
-                //$class = "\\tvfilename\\handlers\\format1";
                 $handler = new $class;
                 $this->addHandler($handlerName, $handler);
             }

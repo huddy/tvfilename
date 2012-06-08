@@ -9,7 +9,7 @@ class format5 implements handlerInterface {
     public $episode;
     public $season;
     public $string;
-    private $_regex = '/\D+([1-9])(\d\d)\D+/i'; //matches stargate.atlantis.409.dsr.xvid.notv.avi - we assume season is first single digit.;
+    private $_regex = '/^[0-9]*?\D*([1-9])(\d\d)\D+/i'; //matches stargate.atlantis.409.dsr.xvid.notv.avi - we assume season is first single digit.;
 
     public function match($string) {
         $matches = array();
@@ -19,6 +19,8 @@ class format5 implements handlerInterface {
             $this->string = $string;
             return true;
         }
+        
+        return false;
     }
 
 }

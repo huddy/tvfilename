@@ -19,6 +19,8 @@ class format2 implements handlerInterface {
             $this->string = $string;
             return true;
         }
+        
+        return false;
     }
 
 }
