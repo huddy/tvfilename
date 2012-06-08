@@ -66,8 +66,8 @@ class format1test extends PHPUnit_Framework_TestCase
     public function providerShouldntMatch()
     {
         return array(
-            array('slkjdlfkjds 01E02'),
-            array('fdsgdfgdfgdf 01E3'),
+            //array('slkjdlfkjds 01E02'),
+            array('fdsgdfgdfgdf E3'),
         );
     }
 

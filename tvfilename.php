@@ -31,8 +31,8 @@ class tvFilename
         'format3' => '',
         'format4' => '',
         'format5' => '',
-        'format6' => '',
         'format7' => '',
+        'format6' => '',
         'loadedStatus' => false,
         
     );
@@ -93,16 +93,17 @@ class tvFilename
      */
     public function match($string)
     {
-
+        
         if (!is_string($string)) {
             throw New \Exception('Match only excepts a string, sorry.');
         }
 
         foreach ($this->getHandlers() as $handlerName => $handler) {
-            
-            if (true == $handler->match($string)) {
-                require_once 'tvfilenameresult.php';
-                return new tvfilenameresult($handler);
+            if('loadedStatus' !== $handlerName){ 
+                if (true == $handler->match($string)) {
+                    require_once 'tvfilenameresult.php';
+                    return new tvfilenameresult($handler);
+                }
             }
         }
 
@@ -122,6 +123,7 @@ class tvFilename
         if (false === $this->_handlers['loadedStatus']) {
             $this->loadHandlers();
         }
+        
         return $this->_handlers;
     }
 

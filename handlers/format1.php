@@ -9,7 +9,7 @@ class format1 implements handlerInterface {
     public $episode;
     public $season;
     public $string;
-    private $_regex = '/s([0-9]{1,2}).*e([0-9]{1,2})/i'; //matches s00e00;
+    private $_regex = '/s?([0-9]{1,2})[ \_]?e([0-9]{1,2})/i'; //matches s00e00;
     
     public function match($string) {
         $matches = array();

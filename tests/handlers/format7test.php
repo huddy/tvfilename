@@ -46,6 +46,7 @@ class format2test extends PHPUnit_Framework_TestCase
         return array(
             array('Episode 18', 1, 18),
             array('23astroboy.1980s Episode 45.of.astro.boy-dvdrip.xvid.avi', 1, 45),
+            array('Shin Chan - Episode 06.avi', 1, 6),
         );
     }
 

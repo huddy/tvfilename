@@ -47,7 +47,6 @@ class format2test extends PHPUnit_Framework_TestCase
         return array(
             array('24 Season 1 Episode 01', 1, 1),
             array('Jiberish Season 01 Episode 07 x264 HS',1,7),
-            array('Shin Chan - Episode 06.avi', 1, 6),
         );
     }
 
