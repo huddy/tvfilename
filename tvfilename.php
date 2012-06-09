@@ -25,6 +25,7 @@ class tvFilename
      */
     private $_handlers = array(
         
+        'format12' => '',
         'format8' => '',
         'format1' => '',
         'format2' => '',
@@ -100,7 +101,7 @@ class tvFilename
         if (!is_string($string)) {
             throw New \Exception('Match only excepts a string, sorry.');
         }
-
+        
         foreach ($this->getHandlers() as $handlerName => $handler) {
             if('loadedStatus' !== $handlerName){ 
                 if (true == $handler->match($string)) {
