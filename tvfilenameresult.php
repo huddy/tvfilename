@@ -10,6 +10,8 @@ class tvfilenameresult
     public $season = 0;
     public $episode = 0;
     public $string = '';
+    public $handler = '';
+    public $episodeType = 'standard';
     public $status = true;
 
     public function __construct(handlers\handlerInterface $handler)
@@ -23,6 +25,8 @@ class tvfilenameresult
         $this->season = $handler->season;
         $this->episode = $handler->episode;
         $this->string = $handler->string;
+        if(!empty($handler->episodeType))
+            $this->episodeType = $handler->episodeType;
         $this->handler = end(explode("\\",get_class($handler)));
     }
 

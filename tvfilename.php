@@ -25,6 +25,8 @@ class tvFilename
      */
     private $_handlers = array(
         
+        'format14' => '',
+        'format13' => '',
         'format12' => '',
         'format8' => '',
         'format1' => '',

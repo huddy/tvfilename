@@ -83,6 +83,9 @@ class tvfilenametest extends PHPUnit_Framework_TestCase
             array('EFC 0104 - Avatar.avi',1,4,'format9'),
             array('south.park.1202.dsr-0tv.avi',12,2,'format9'),
             array('Hellsing 04v2 [anime fin][6BD62B96].ogm',1,4,'format11'),
+            array('Extras.2005.PAL.DVD.S02EE02.AC3.x264-sJR.mkv',2,2,'format14'),
+            array('(W_B) SDF Macross 31(x264)(6BD62B96).mkv',1,31,'format12'),
+            array('Star Trek Deep Space Nine s02extra03 - Sketchbook NTSC DVD x264 DD2.0-JCH.mkv',2,3,'format13'),
         );
     }
 
