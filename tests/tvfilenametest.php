@@ -59,7 +59,7 @@ class tvfilenametest extends PHPUnit_Framework_TestCase
             array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179,'format8'),
             array('One Piece - 001 - I m Luffy! The Man Whos Gonna Be King of the Pirates! [x264][857DCFD6].mkv',1,1,'format8'),
             array('S02E03.mkv',2,3,'format1'),
-            array('08 - A Pinky And The Brain Christmas.mpg',1,8,'format6'),
+            array('08 - A Pinky And The Brain Christmas.mpg',1,8,'format10'),
             array('Planetes.07.PSNR.mkv',1,7,'format6'),
             array('BUFFY THE VAMPIRE SLAYER - S01 E01 - WELCOME TO THE HELLMOUTH  NTSC DVD DD2.0 x264 MMI.mkv',1,1,'format1'),
             array('408 - Manners.avi',4,8,'format5'),
@@ -73,10 +73,16 @@ class tvfilenametest extends PHPUnit_Framework_TestCase
             array('Dragons Den S07E01 - 2009-07-15 - 720p-h264-ac3-subs.mkv',7,1,'format1'),
             array('DragonsDen-2007ChristmasSpecial-S05E10.avi',5,10,'format1'),
             array('Dragons\' Den - s6e1.avi',6,1,'format1'),
-            array('EFC 0107 - Resurrection.avi',1,7,'format1'),
+            array('EFC 0107 - Resurrection.avi',1,7,'format9'),
             array('Elfen Lied - 01 - A Chance Encounter.mkv',1,1,'format6'),
             array('E05.720p.BluRay.x264-fty.mkv',1,5,'format4'),
             array('Episode 7 - Bolognese sauce.jpg',1,7,'format7'),
+            array('xpatriots.24.0815.720p.hdtv.x264-dimension.mkv',8,15,'format9'),
+            array('king.of.the.hill.1306.pdtv-lol.avi',13,6,'format9'),
+            array('TG1302.mkv',13,2,'format9'),
+            array('EFC 0104 - Avatar.avi',1,4,'format9'),
+            array('south.park.1202.dsr-0tv.avi',12,2,'format9'),
+            array('Hellsing 04v2 [anime fin][6BD62B96].ogm',1,4,'format11'),
         );
     }
 

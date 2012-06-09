@@ -1,6 +1,6 @@
 <?php
 
-require '../../handlers/format8.php';
+require '../../handlers/format9.php';
 
 class format2test extends PHPUnit_Framework_TestCase
 {
@@ -14,7 +14,7 @@ class format2test extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
 
-        self::$Handler = new tvfilename\handlers\format8;
+        self::$Handler = new tvfilename\handlers\format9;
     }
 
     /**
@@ -44,12 +44,11 @@ class format2test extends PHPUnit_Framework_TestCase
     public function providerMatches()
     {
         return array(
-            array('[DBNL] One Piece - 079 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 79),
-            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179),
-            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179),
-            array('One Piece - 001 - I m Luffy! The Man Whos Gonna Be King of the Pirates! [x264][857DCFD6].mkv', 1, 1),
-            array('[moo-shi]_Desert_Punk_-_01[DVD][H264.AAC][17FC7F0C].mkv', 1, 1),
-            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv',1,179),
+            array('xpatriots.24.0815.720p.hdtv.x264-dimension.mkv',8,15),
+            array('king.of.the.hill.1306.pdtv-lol.avi',13,6),
+            array('TG1302.mkv',13,2),
+            array('EFC 0104 - Avatar.avi',1,4),
+            array('south.park.1202.dsr-0tv.avi',12,2),
         );
     }
 

@@ -33,6 +33,9 @@ class tvFilename
         'format5' => '',
         'format7' => '',
         'format6' => '',
+        'format9' => '',
+        'format11' => '',
+        'format10' => '', //should probably stay at the bottom quite unspecific. 
         'loadedStatus' => false,
         
     );

@@ -1,6 +1,6 @@
 <?php
 
-require '../../handlers/format8.php';
+require '../../handlers/format11.php';
 
 class format2test extends PHPUnit_Framework_TestCase
 {
@@ -14,7 +14,7 @@ class format2test extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
 
-        self::$Handler = new tvfilename\handlers\format8;
+        self::$Handler = new tvfilename\handlers\format11;
     }
 
     /**
@@ -44,23 +44,20 @@ class format2test extends PHPUnit_Framework_TestCase
     public function providerMatches()
     {
         return array(
-            array('[DBNL] One Piece - 079 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 79),
-            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179),
-            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv', 1, 179),
-            array('One Piece - 001 - I m Luffy! The Man Whos Gonna Be King of the Pirates! [x264][857DCFD6].mkv', 1, 1),
-            array('[moo-shi]_Desert_Punk_-_01[DVD][H264.AAC][17FC7F0C].mkv', 1, 1),
-            array('[DBNL] One Piece - 179 - A Raid! The Tin Tyrant and Tin Plate Wapol! [x264][D1F15206].mkv',1,179),
+            array('Hellsing 04v2 [anime fin][6BD62B96].ogm',1,4),
+            array('sdfs 08v2 - Young Scientist Special.avi',1,8),
         );
     }
 
     public function providerShouldntMatch()
     {
         return array(
-            array('24.618.hr.hdtv.xvid-tvff.avi', 6, 18),
             array('fdsgdfgdfgdf 01E3'),
             array('Test - 079 - sdfdsfds [x264]',0,79),
             array('astroboy.1980s.024.the.birth.of.astro.boy-dvdrip.xvid.avi', 1, 2),
             array('Bakemonogatari_Ep02_[1080p,BluRay,x264]_-_qIIq-THORA.mkv', 1, 2),
+            array('08. Self-Conceit ~ The Art of Altercation.mkv',1,8),
+
         );
     }
 
